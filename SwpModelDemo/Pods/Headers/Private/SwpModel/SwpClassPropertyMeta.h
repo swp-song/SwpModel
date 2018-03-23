@@ -1,0 +1,1 @@
+../../../../../SwpModel/Model/SwpClassPropertyMeta.h

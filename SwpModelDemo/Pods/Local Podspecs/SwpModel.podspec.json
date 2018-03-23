@@ -1,0 +1,26 @@
+{
+  "name": "SwpModel",
+  "version": "1.0.0",
+  "summary": "Model 处理工具",
+  "description": "TODO: Model 处理工具",
+  "homepage": "https://github.com/swp-song/SwpModel",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    " swp_song": "396587868@qq.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/swp-song/SwpModel.git",
+    "commit": "4e0d70e289d6ac5899cdc8dec2fd9d0175d5fe06"
+  },
+  "source_files": [
+    "SwpModel",
+    "SwpModel/**/*.{h,m}"
+  ],
+  "frameworks": "Foundation"
+}

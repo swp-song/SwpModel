@@ -1,0 +1,16 @@
+PODS:
+  - SwpModel (1.0.0)
+
+DEPENDENCIES:
+  - SwpModel (from `../`)
+
+EXTERNAL SOURCES:
+  SwpModel:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwpModel: e0c79312f7a1cfaacf325a593a4883eab055436b
+
+PODFILE CHECKSUM: 4f25e6077cd2a3a18fcc607b21f19a893557dca0
+
+COCOAPODS: 1.5.0.beta.1
