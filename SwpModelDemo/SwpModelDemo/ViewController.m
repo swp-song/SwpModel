@@ -25,6 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    
+    NSLog(@"Info    = %@", [SwpModelInfo swpModelInfo]);
+    NSLog(@"Version = %@", [SwpModelInfo swpModelVersion]);
+    
     TestModel *test     = [TestModel testInit];
     TestModel *testTemp1 = [test swpUnArchive];
     

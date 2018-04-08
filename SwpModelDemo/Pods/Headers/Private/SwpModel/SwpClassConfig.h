@@ -1,1 +1,1 @@
-../../../../../SwpModel/Model/SwpClassConfig.h
+../../../../../SwpModel/Class/Model/SwpClassConfig.h

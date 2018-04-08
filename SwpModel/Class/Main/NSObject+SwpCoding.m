@@ -9,7 +9,6 @@
 #import "NSObject+SwpCoding.h"
 
 /* ---------------------- Tool       ---------------------- */
-#import <objc/message.h>
 #import "SwpModelUtils.h"
 /* ---------------------- Tool       ---------------------- */
 

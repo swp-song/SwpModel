@@ -2,12 +2,19 @@
 
 ### SwpModel
 
-[![CI Status](http://img.shields.io/travis/swp-song/SwpModel.svg?style=flat)](https://travis-ci.org/swp-song/SwpModel) [![Version](https://img.shields.io/cocoapods/v/SwpModel.svg?style=flat)](http://cocoapods.org/pods/SwpModel) [![License](https://img.shields.io/cocoapods/l/SwpModel.svg?style=flat)](http://cocoapods.org/pods/SwpModel) [![Platform](https://img.shields.io/cocoapods/p/SwpModel.svg?style=flat)](http://cocoapods.org/pods/SwpModel)
+[![Xcode](https://img.shields.io/badge/Xcode-9.3-25B1F6.svg)](https://developer.apple.com/xcode)
+[![iOS](https://img.shields.io/badge/iOS-8.0+-1C75AF.svg)](https://developer.apple.com/xcode)
+[![CI Status](http://img.shields.io/travis/swp-song/SwpModel.svg?style=flat)](https://travis-ci.org/swp-song/SwpModel) 
+[![Version](https://img.shields.io/cocoapods/v/SwpModel.svg?style=flat)](http://cocoapods.org/pods/SwpModel) 
+[![License](https://img.shields.io/cocoapods/l/SwpModel.svg?style=flat)](http://cocoapods.org/pods/SwpModel) 
+[![Platform](https://img.shields.io/cocoapods/p/SwpModel.svg?style=flat)](http://cocoapods.org/pods/SwpModel)
+
+-------
 
 
 ###  简介
 
->  封装，模型的一些操作，暂时模型的 归档 / 解当，陆续会继续封装。
+>  封装，模型的一些操作，模型的 归档 / 解当，会持续更新更多的方法。
 
 -------
 
@@ -34,20 +41,19 @@
 
 ### 版本记录
 
+> * 版本版本：1.1.0
+> * 更新时间：2018-04-08 21:16:13
+> * 更新内容：
+>>  *  新增，版本资源。
+        
+-------
+
 > * 版本版本：1.0.3
 > * 更新时间：2018-03-24 11:58:06
 > * 更新内容：
 >>  *   迭代更新。
     
 -------
-
-> * 版本版本：1.0.2
-> * 更新时间：2018-03-23 17:32:03
-> * 更新内容：
->>  *  添加 .travis.yml 文件
-        
--------
-
 
 ### 备注
 

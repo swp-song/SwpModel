@@ -1,1 +1,1 @@
-../../../../../SwpModel/Main/NSObject+SwpCoding.h
+../../../../../SwpModel/Class/Main/NSObject+SwpCoding.h

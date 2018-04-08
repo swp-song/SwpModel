@@ -9,6 +9,7 @@
 #ifndef SwpModelHeader_h
 #define SwpModelHeader_h
 
+    #import "SwpModelInfo.h"
     #import "NSObject+SwpCoding.h"
 
 #endif /* SwpModelHeader_h */
