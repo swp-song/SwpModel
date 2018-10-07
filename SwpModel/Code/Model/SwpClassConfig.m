@@ -35,11 +35,8 @@
  *  @return SwpClassConfig
  */
 - (instancetype)initWithClass:(Class)aClass {
-    
     if (!aClass) return nil;
-    
     if (self = [super init]) {
-        
         _aClss             = aClass;
         _aSuperClss        = class_getSuperclass(aClass);
         _aIsMeta           = class_isMetaClass(aClass);
@@ -50,9 +47,7 @@
             _aSuperClassConfig = [self.class swpClassConfig:_aSuperClss];;
         }
     }
-
     if (!_aPropertys) _aPropertys = @{};
-
     return self;
 }
 
@@ -66,7 +61,6 @@
  *  @return NSDictionary
  */
 - (NSDictionary<NSString *, SwpClassProperty *> *)_getPropertys:(Class)aClass {
-
     unsigned int propertyCount = 0;
     objc_property_t     *properties = class_copyPropertyList(aClass, &propertyCount);
     NSMutableDictionary *aPropertys = [NSMutableDictionary new];

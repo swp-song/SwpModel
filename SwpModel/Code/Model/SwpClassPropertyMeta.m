@@ -16,7 +16,6 @@
 
 @implementation SwpClassPropertyMeta
 
-
 /**
  *  @author swp_song
  *
@@ -31,7 +30,6 @@
 - (instancetype)initClassPropertyMeta:(SwpClassConfig *)classConfig aProperty:(SwpClassProperty *)aProperty {
 
     if (self = [super init]) {
-    
         _aProperty = aProperty;
         _aName  = _aProperty.aName;
         _aType  = _aProperty.aType;
@@ -43,9 +41,7 @@
             _aCNumber   = SwpEncodingTypeIsCNumber(_aType);
         }
         
-        
         if ((_aType & SwpEncodingTypeMask) == SwpEncodingTypeStruct) {
-            
             /*
              It seems that NSKeyedUnarchiver cannot decode NSValue except these structs:
              */
@@ -72,9 +68,7 @@
             if ([types containsObject:aProperty.aTypeEncoding]) {
                 _aStrucKeyedManner = YES;
             }
-            
         }
-        
         
         if (aProperty.aGetter) {
             if ([classConfig.aClss instancesRespondToSelector:aProperty.aGetter]) {
@@ -89,7 +83,6 @@
         }
         
         if (_aGetter && _aSetter) {
-        
             switch (_aType & SwpEncodingTypeMask) {
                 case SwpEncodingTypeBool:
                 case SwpEncodingTypeInt8:

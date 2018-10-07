@@ -13,9 +13,8 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface SwpClassConfigMeta : SwpClassBase
 
-
 /** config meta's aNSType */
-@property (nonatomic, assign, readonly) SwpEncodingNSType   aNSType;
+@property (nonatomic, assign, readonly) SwpEncodingNSType aNSType;
 /** config meta's classConfig */
 @property (nonatomic, strong, readonly) SwpClassConfig  *aClassConfig;
 /** config meta's all propertys */

@@ -74,14 +74,12 @@
     return [self swpInitWithCoder:aDecoder];
 }
 
-
 - (NSMutableDictionary *)getDictonaryDatas:(TestModel *)test array:(NSArray *)array {
     NSMutableDictionary *dictonary = @{}.mutableCopy;
     [dictonary setObject:@"value1" forKey:@"key1"];
     [dictonary setObject:@(12345) forKey:@"key2"];
     [dictonary setObject:test forKey:@"key3"];
     [dictonary setObject:array forKey:@"key3"];
-    
     return dictonary;
 }
 

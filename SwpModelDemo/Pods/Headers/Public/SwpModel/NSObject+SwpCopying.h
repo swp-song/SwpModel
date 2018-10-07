@@ -1,0 +1,1 @@
+../../../../../SwpModel/Code/Main/NSObject+SwpCopying.h

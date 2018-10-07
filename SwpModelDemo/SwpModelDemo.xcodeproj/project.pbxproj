@@ -31,7 +31,6 @@
 		2D15203A205A7314002BCDC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D15203C205A7314002BCDC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D15203D205A7314002BCDC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D9187522064B32C00AA50CA /* SwpModelHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwpModelHeader.h; sourceTree = "<group>"; };
 		2D9187572064CEDC00AA50CA /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
 		2D9187582064CEDC00AA50CA /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		2D91875E2064CF4900AA50CA /* Test1Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test1Model.h; sourceTree = "<group>"; };
@@ -85,7 +84,6 @@
 				2D152039205A7314002BCDC3 /* LaunchScreen.storyboard */,
 				2D15203C205A7314002BCDC3 /* Info.plist */,
 				2D15203D205A7314002BCDC3 /* main.m */,
-				2D9187522064B32C00AA50CA /* SwpModelHeader.h */,
 			);
 			path = SwpModelDemo;
 			sourceTree = "<group>";
@@ -253,7 +251,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwpModelDemo/Pods-SwpModelDemo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwpModelDemo/Pods-SwpModelDemo-resources.sh",
 				"${PODS_ROOT}/../../SwpModel/Resources/SwpModel.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -262,7 +260,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwpModelDemo/Pods-SwpModelDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwpModelDemo/Pods-SwpModelDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -419,7 +417,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwpModelDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swp-song";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -436,7 +434,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwpModelDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "swp-song";
 				PRODUCT_NAME = "$(TARGET_NAME)";

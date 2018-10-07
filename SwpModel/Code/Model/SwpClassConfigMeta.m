@@ -14,7 +14,6 @@
 #import "SwpClassPropertyMeta.h"
 /* ---------------------- Model      ---------------------- */
 
-
 @implementation SwpClassConfigMeta
 
 /**
@@ -29,17 +28,14 @@
 - (instancetype)initClassConfigMeta:(Class)aClss {
     
     if (self = [super init]) {
-        
         SwpClassConfig *tempClass = [[SwpClassConfig alloc] initWithClass:aClss];
         _aNSType        = SwpClassGetNSType(aClss);
         _aClassConfig   = tempClass;
         _aPropertyMetas = [self getAllPropertys:tempClass];
         if (_aPropertyMetas.count) _aAllPropertys = _aPropertyMetas.allValues.copy;
-        
     }
     return self;
 }
-
 
 /**
  *  @author swp_song
@@ -54,7 +50,6 @@
     
     NSMutableDictionary *propertyMetas = NSMutableDictionary.new;
     SwpClassConfig      *tempClass     = classConfig;
-    
     while (tempClass && tempClass.aSuperClss != nil) {
         
         for (SwpClassProperty *obj in tempClass.aPropertys.allValues) {
@@ -67,7 +62,6 @@
         }
         tempClass = tempClass.aSuperClassConfig;
     }
-    
     return propertyMetas.copy;
 }
 

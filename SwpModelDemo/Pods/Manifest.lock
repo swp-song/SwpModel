@@ -1,5 +1,5 @@
 PODS:
-  - SwpModel (1.1.1)
+  - SwpModel (1.2.0)
 
 DEPENDENCIES:
   - SwpModel (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwpModel: eb7aa253f94a8de273beec72bb958c0127a9ba87
+  SwpModel: 79058a449c374c645713d72ea9c8475f3fd62051
 
 PODFILE CHECKSUM: 4f25e6077cd2a3a18fcc607b21f19a893557dca0
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.6.0.beta.1

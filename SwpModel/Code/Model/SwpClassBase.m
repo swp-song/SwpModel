@@ -8,10 +8,7 @@
 
 #import "SwpClassBase.h"
 
-
-
 @implementation SwpClassBase
-
 
 /**
  *  @author swp_song
@@ -73,7 +70,6 @@ SwpEncodingType SwpEncodingGetType(const char *typeEncoding) {
         case '{': return SwpEncodingTypeStruct      | qualifier;
         case '@': {
             if (len == 2 && *(type + 1) == '?')
-                
                 return SwpEncodingTypeBlock     | qualifier;
             else
                 return SwpEncodingTypeObject    | qualifier;
@@ -81,8 +77,6 @@ SwpEncodingType SwpEncodingGetType(const char *typeEncoding) {
         default: return SwpEncodingTypeUnknown  | qualifier;
     }
 }
-
-
 
 /**
  *  @author swp_song
@@ -96,7 +90,6 @@ SwpEncodingType SwpEncodingGetType(const char *typeEncoding) {
 + (SwpEncodingNSType)swpClassGetNSType:(Class)aClss {
     return SwpClassGetNSType(aClss);
 }
-
 
 /**
  *  @author swp_song
@@ -128,7 +121,6 @@ SwpEncodingNSType SwpClassGetNSType(Class aClss) {
     
     return SwpEncodingTypeNSUnknown;
 }
-
 
 /**
  *  @author swp_song
@@ -170,8 +162,6 @@ BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type) {
     }
 }
 
-
-
 /**
  *  @author swp_song
  *
@@ -191,7 +181,6 @@ BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type) {
         block(attribute, i, &stop);
         if (stop) break;
     }
-    
     if (attributes) {
         free(attributes);
         attributes = NULL;
@@ -209,7 +198,6 @@ BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type) {
  *  @param  block   block
  */
 + (void)swp_EnumeratePropertyListBlock:(Class)aClass block:(void (NS_NOESCAPE ^)(objc_property_t property, NSUInteger index, BOOL * stop))block {
-    
     BOOL stop = NO;
     unsigned int propertyCount = 0;
     objc_property_t * propertys = class_copyPropertyList(aClass, &propertyCount);

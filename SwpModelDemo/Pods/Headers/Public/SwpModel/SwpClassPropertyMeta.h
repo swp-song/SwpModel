@@ -1,1 +1,1 @@
-../../../../../SwpModel/Class/Model/SwpClassPropertyMeta.h
+../../../../../SwpModel/Code/Model/SwpClassPropertyMeta.h

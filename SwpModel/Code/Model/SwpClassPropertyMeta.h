@@ -13,7 +13,6 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface SwpClassPropertyMeta : SwpClassBase
 
-
 /** class property's name */
 @property(nonatomic, copy, readonly) NSString *aName;
 /** class property's class */
@@ -47,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return SwpClassPropertyMeta
  */
 - (instancetype)initClassPropertyMeta:(SwpClassConfig *)classConfig aProperty:(SwpClassProperty *)aProperty;
-
 
 @end
 NS_ASSUME_NONNULL_END
