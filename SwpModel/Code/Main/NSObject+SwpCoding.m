@@ -22,11 +22,11 @@
 /**
  *  @author swp_song
  *
- *  @brief  swpEncodeWithCoder: ( SwpCoding 归档 )
+ *  @brief  swpEncodeCoder: ( Encode Code )
  *
  *  @param  aCoder  aCoder
  */
-- (void)swpEncodeWithCoder:(NSCoder *)aCoder {
+- (void)swpEncodeCoder:(NSCoder *)aCoder {
     
     if (!aCoder) return;
     if (self == (id)kCFNull) {
@@ -75,14 +75,13 @@
 /**
  *  @author swp_song
  *
- *  @brief  swpInitWithCoder:   ( Swp Model 解档 )
+ *  @brief  swpDecoderCoder:    ( Decoder Code )
  *
  *  @param  aDecoder    aDecoder
  *
  *  @return id
  */
-- (id)swpInitWithCoder:(NSCoder *)aDecoder {
-    
+- (id)swpDecoderCoder:(NSCoder *)aDecoder {
     if (!aDecoder) return self;
     if (self == (id)kCFNull) return self;
     SwpClassConfigMeta *configMeta = [[SwpClassConfigMeta alloc] initClassConfigMeta:self.class];
@@ -98,13 +97,11 @@
         } else {
             switch (meta.aType & SwpEncodingTypeMask) {
                 case SwpEncodingTypeObject: {
-//                    id value = [aDecoder decodeObjectForKey:meta.aName];
-                    id value = [aDecoder decodeObjectOfClass:meta.aClass forKey:meta.aName];
+                    id value = [aDecoder decodeObjectForKey:meta.aName];
                     ((void (*)(id, SEL, id))(void *) objc_msgSend)((id)self, meta.aSetter, value);
                 } break;
                 case SwpEncodingTypeSEL: {
-//                    NSString *selString = [aDecoder decodeObjectForKey:meta.aName];
-                    NSString *selString = [aDecoder decodeObjectOfClass:meta.aClass forKey:meta.aName];
+                    NSString *selString = [aDecoder decodeObjectForKey:meta.aName];
                     SEL sel = NSSelectorFromString(selString);
                     ((void (*)(id, SEL, SEL))(void *) objc_msgSend)((id)self, meta.aSetter, sel);
                 } break;
@@ -112,8 +109,7 @@
                 case SwpEncodingTypeUnion: {
                     if (meta.isAKVCCompatible) {
                         @try {
-//                            NSString *value = [aDecoder decodeObjectForKey:meta.aName];
-                            NSString *value = [aDecoder decodeObjectOfClass:meta.aClass forKey:meta.aName];
+                            NSString *value = [aDecoder decodeObjectForKey:meta.aName];
                             if (value) [self setValue:value forKey:meta.aName];
                         } @catch (NSException *exception) {}
                     }

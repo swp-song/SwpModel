@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface Test1Model : TestModel
 
-
 @property (nonatomic, copy) NSString *test1NSString;
 
 /**

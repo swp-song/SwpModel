@@ -14,22 +14,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @author swp_song
  *
- *  @brief  swpEncodeWithCoder: ( SwpCoding 归档 )
+ *  @brief  swpEncodeCoder: ( Encode Code )
  *
  *  @param  aCoder  aCoder
  */
-- (void)swpEncodeWithCoder:(NSCoder *)aCoder;
+- (void)swpEncodeCoder:(NSCoder *)aCoder;
 
 /**
  *  @author swp_song
  *
- *  @brief  swpInitWithCoder:   ( SwpCoding 解档 )
+ *  @brief  swpDecoderCoder:    ( Decoder Code )
  *
  *  @param  aDecoder    aDecoder
  *
  *  @return id
  */
-- (id)swpInitWithCoder:(NSCoder *)aDecoder;
+- (id)swpDecoderCoder:(NSCoder *)aDecoder;
 
 /**
  *  @author swp_song

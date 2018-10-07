@@ -28,7 +28,6 @@
     return test;
 }
 
-
 /**
  *  @author swp_song
  *
@@ -48,9 +47,7 @@
     _testNSNumber       = @(UINT8_MAX);
     _testNSIndexPath    = [NSIndexPath indexPathForRow:INT8_MAX inSection:UINT8_MAX];
     _testBool           = YES;
-    
     _testModelTeype     = TestModelTeype4;
-    
     _testNSArray        = @[@(1), @(2), @(3), @(4)];
     _testNSMutableArray = [NSMutableArray arrayWithObjects:@"123", _testNSArray, _testModel, nil];
     _testNSDictionary   = @{@"key1" : @"value1", @"key2" : @"value2", @"key3" : @"value3", @"key4" : @"value5"};
@@ -67,11 +64,11 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [self swpEncodeWithCoder:aCoder];
+    [self swpEncodeCoder:aCoder];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    return [self swpInitWithCoder:aDecoder];
+    return [self swpDecoderCoder:aDecoder];
 }
 
 - (NSMutableDictionary *)getDictonaryDatas:(TestModel *)test array:(NSArray *)array {

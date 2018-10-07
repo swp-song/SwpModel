@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9DB193E4ACA9EFD763A6BDD912ECFC"
+               BlueprintIdentifier = "5DF273AF048047BB03D247FDB8510F2B"
                BlueprintName = "SwpModel"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libSwpModel.a">

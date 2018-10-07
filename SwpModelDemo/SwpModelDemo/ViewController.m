@@ -8,9 +8,7 @@
 
 #import "ViewController.h"
 
-
 #import <SwpModel/SwpModelHeader.h>
-
 #import "TestModel.h"
 #import "Test1Model.h"
 #import "Test2Model.h"

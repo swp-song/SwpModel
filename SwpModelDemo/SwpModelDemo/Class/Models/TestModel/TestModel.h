@@ -27,7 +27,6 @@ typedef NS_ENUM(NSInteger, TestModelTeype) {
 @property (nonatomic, assign) float         testFloat;
 @property (nonatomic, assign) double        testDouble;
 @property (nonatomic, assign) long double   testLongDouble;
-
 @property (nonatomic, copy  ) NSString      *testNSString;
 @property (nonatomic, assign) NSInteger     testInteger;
 @property (nonatomic, assign) CGFloat       testCGFloat;
@@ -36,15 +35,12 @@ typedef NS_ENUM(NSInteger, TestModelTeype) {
 @property (nonatomic, copy  ) NSNumber      *testNSNumber;
 @property (nonatomic, copy  ) NSIndexPath   *testNSIndexPath;
 @property (nonatomic, assign, getter=isTestBool) BOOL testBool;
-
 @property (nonatomic, assign) TestModelTeype      testModelTeype;
 @property (nonatomic, copy  ) NSArray             *testNSArray;
 @property (nonatomic, strong) NSMutableArray      *testNSMutableArray;
 @property (nonatomic, copy  ) NSDictionary        *testNSDictionary;
 @property (nonatomic, strong) NSMutableDictionary *testNSMutableDictionary;
-
 @property (nonatomic, strong, setter=setTest:, getter=testModel) TestModel *testModel;
-
 
 /**
  *  @author swp_song
