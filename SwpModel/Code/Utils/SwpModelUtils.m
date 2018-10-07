@@ -13,7 +13,7 @@
 /* ---------------------- Tool       ---------------------- */
 
 /* ---------------------- Model      ---------------------- */
-#import "SwpClassPropertyMeta.h"
+#import "SwpModelPropertyMeta.h"
 /* ---------------------- Model      ---------------------- */
 
 @implementation SwpModelUtils
@@ -29,7 +29,7 @@
  *
  *  @return NSNumber
  */
-+ (NSNumber *)swpModelUtilsGetNumberToProperty:(id)model meta:(SwpClassPropertyMeta *)meta {
++ (NSNumber *)swpModelUtilsGetNumberToProperty:(id)model meta:(SwpModelPropertyMeta *)meta {
     switch (meta.aType & SwpEncodingTypeMask) {
             
         case SwpEncodingTypeBool:
@@ -97,7 +97,7 @@
  *
  *  @param  meta    meta
  */
-+ (void)swpModelUtilsSetNumberToProperty:(id)model number:(NSNumber *)number mete:(SwpClassPropertyMeta *)meta {
++ (void)swpModelUtilsSetNumberToProperty:(id)model number:(NSNumber *)number mete:(SwpModelPropertyMeta *)meta {
     
     switch (meta.aType & SwpEncodingTypeMask) {
             
@@ -174,6 +174,89 @@
             
         default:
             break;
+    }
+}
+
++ (void)swpCopyModel:(NSObject *)aSelf model:(NSObject *)model meta:(SwpModelPropertyMeta *)meta {
+    
+    if (meta.isACNumber) {
+        switch (meta.aType & SwpEncodingTypeMask) {
+            case SwpEncodingTypeBool: {
+                bool value = ((bool (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, bool))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeInt8: {
+                int8_t value = ((int8_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, int8_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeUInt8: {
+                uint8_t value = ((uint8_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, uint8_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeInt16: {
+                int16_t value = ((int16_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, int16_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeUInt16: {
+                uint16_t value = ((uint16_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, uint16_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeInt32: {
+                int32_t value = ((int32_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, int32_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeUInt32: {
+                uint32_t value = ((uint32_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, uint32_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeInt64: {
+                int64_t value = ((int64_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, int64_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeUInt64: {
+                uint64_t value = ((uint64_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, uint64_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeFloat: {
+                float value = ((float (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, float))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeDouble: {
+                double value = ((double (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, double))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeLongDouble: {
+                long double value = ((long double (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, long double))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            default: break;
+        }
+        
+    } else {
+        switch (meta.aType & SwpEncodingTypeMask) {
+            case SwpEncodingTypeObject:
+            case SwpEncodingTypeClass:
+            case SwpEncodingTypeBlock: {
+                id value = ((id (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, id))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            } break;
+            case SwpEncodingTypeSEL:
+            case SwpEncodingTypePointer:
+            case SwpEncodingTypeCString: {
+                size_t value = ((size_t (*)(id, SEL))(void *) objc_msgSend)((id)aSelf, meta.aGetter);
+                ((void (*)(id, SEL, size_t))(void *) objc_msgSend)((id)model, meta.aSetter, value);
+            }
+            case SwpEncodingTypeStruct:
+            case SwpEncodingTypeUnion: {
+                @try {
+                    NSValue *value = [aSelf valueForKey:NSStringFromSelector(meta.aGetter)];
+                    if (value) {
+                        [model setValue:value forKey:meta.aName];
+                    }
+                } @catch (NSException *exception) {}
+            }
+            default: break;
+        }
     }
 }
 

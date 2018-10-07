@@ -92,8 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				2D152048205A755E002BCDC3 /* Models */,
-				2D152049205A755E002BCDC3 /* Controllers */,
-				2D15204A205A755E002BCDC3 /* Views */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -105,20 +103,6 @@
 				2D9187592064CEDC00AA50CA /* TestSubModel */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2D152049205A755E002BCDC3 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		2D15204A205A755E002BCDC3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		2D9187562064CEDC00AA50CA /* TestModel */ = {

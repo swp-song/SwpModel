@@ -71,6 +71,14 @@
     return [self swpDecoderCoder:aDecoder];
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    return [self swpCopy];
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone {
+    return [self swpCopy];
+}
+
 - (NSMutableDictionary *)getDictonaryDatas:(TestModel *)test array:(NSArray *)array {
     NSMutableDictionary *dictonary = @{}.mutableCopy;
     [dictonary setObject:@"value1" forKey:@"key1"];
@@ -79,5 +87,6 @@
     [dictonary setObject:array forKey:@"key3"];
     return dictonary;
 }
+
 
 @end

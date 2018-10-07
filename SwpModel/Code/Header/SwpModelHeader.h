@@ -11,5 +11,6 @@
 
     #import "SwpModelInfo.h"
     #import "NSObject+SwpCoding.h"
+    #import "NSObject+SwpCopying.h"
 
 #endif /* SwpModelHeader_h */

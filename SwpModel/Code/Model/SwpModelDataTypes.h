@@ -1,9 +1,9 @@
 //
-//  SwpClassModelDataTypes.h
-//  SwpModelDemo
+//  SwpModelDataTypes.h
+//  swp_song
 //
-//  Created by swp_song on 2018/3/23.
-//  Copyright © 2018年 swp_song. All rights reserved.
+//  Created by swp-song. on 2018/3/23swp-song
+//  Copyright © 2018年 swp-song. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

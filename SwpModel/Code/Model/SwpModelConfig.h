@@ -1,32 +1,31 @@
 //
-//  SwpClassConfig.h
+//  SwpModelConfig.h
 //  swp_song
 //
-//  Created by swp_song on 2018/3/19.
-//  Copyright © 2018年 swp_song. All rights reserved.
+//  Created by swp-song on 2018/3/19.
+//  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-#import "SwpClassBase.h"
+#import "SwpModelBase.h"
 
 @class SwpClassProperty;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SwpClassConfig : SwpClassBase
-
+@interface SwpModelConfig : SwpModelBase
 
 /** class's class */
-@property (nonatomic, assign, readonly) Class    aClss;
+@property (nonatomic, assign, readonly) Class    aClass;
 /** class's aName */
 @property (nonatomic, strong, readonly) NSString *aName;
 /** class's is meta class */
-@property (nonatomic, assign, readonly) BOOL     aIsMeta;
+@property (nonatomic, assign, readonly, getter = isMeta) BOOL aMeta;
 /** class's super class object */
 @property (nonatomic, assign, readonly, nullable) Class aSuperClss;
 /** class's super class object */
 @property (nonatomic, assign, readonly, nullable) Class aMetaClss;
 /** class's super class property */
-@property (nonatomic, strong, readonly) SwpClassConfig *aSuperClassConfig;
+@property (nonatomic, strong, readonly) SwpModelConfig *aSuperConfig;
 /** class's class properties */
 @property (nonatomic, strong, readonly, nullable) NSDictionary<NSString *, SwpClassProperty *> *aPropertys;
 
@@ -39,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return SwpClassConfig
  */
-+ (instancetype)swpClassConfig:(Class)aClass;
++ (instancetype)swpConfig:(Class)aClass;
 
 /**
  *  @author swp_song

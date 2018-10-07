@@ -2,16 +2,16 @@
 //  SwpClassPropertyMeta.h
 //  swp_song
 //
-//  Created by swp_song on 2018/3/21.
-//  Copyright © 2018年 swp_song. All rights reserved.
+//  Created by swp-song on 2018/3/21.
+//  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-#import "SwpClassBase.h"
+#import "SwpModelBase.h"
 
-@class SwpClassProperty, SwpClassConfig;
+@class SwpModelProperty, SwpModelConfig;
 
 NS_ASSUME_NONNULL_BEGIN
-@interface SwpClassPropertyMeta : SwpClassBase
+@interface SwpModelPropertyMeta : SwpModelBase
 
 /** class property's name */
 @property(nonatomic, copy, readonly) NSString *aName;
@@ -32,20 +32,20 @@ NS_ASSUME_NONNULL_BEGIN
 /** class property's  YES if it can access with key-value coding */
 @property (nonatomic, assign, readonly, getter=isAKVCCompatible) BOOL aKVCCompatible;
 /** class property's  property */
-@property (nonatomic, strong, readonly) SwpClassProperty *aProperty;
+@property (nonatomic, strong, readonly) SwpModelProperty *aProperty;
 
 /**
  *  @author swp_song
  *
- *  @brief  initClassPropertyMeta:aProperty:    ( 初始化 )
+ *  @brief  initPropertyMeta:aProperty: ( 初始化 )
  *
- *  @param  classConfig classConfig
+ *  @param  aConfig     aConfig
  *
  *  @param  aProperty   aProperty
  *
  *  @return SwpClassPropertyMeta
  */
-- (instancetype)initClassPropertyMeta:(SwpClassConfig *)classConfig aProperty:(SwpClassProperty *)aProperty;
+- (instancetype)initPropertyMeta:(SwpModelConfig *)aConfig aProperty:(SwpModelProperty *)aProperty;
 
 @end
 NS_ASSUME_NONNULL_END

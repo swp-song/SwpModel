@@ -1,33 +1,33 @@
 //
-//  SwpClassPropertyMeta.m
+//  SwpModelPropertyMeta.m
 //  swp_song
 //
-//  Created by swp_song on 2018/3/21.
-//  Copyright © 2018年 swp_song. All rights reserved.
+//  Created by swp-song on 2018/3/21.
+//  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-#import "SwpClassPropertyMeta.h"
+#import "SwpModelPropertyMeta.h"
 
 
 /* ---------------------- Model      ---------------------- */
-#import "SwpClassConfig.h"
-#import "SwpClassProperty.h"
+#import "SwpModelConfig.h"
+#import "SwpModelProperty.h"
 /* ---------------------- Model      ---------------------- */
 
-@implementation SwpClassPropertyMeta
+@implementation SwpModelPropertyMeta
 
 /**
  *  @author swp_song
  *
- *  @brief  initClassPropertyMeta:aProperty:    ( 初始化 )
+ *  @brief  initPropertyMeta:aProperty: ( 初始化 )
  *
- *  @param  classConfig classConfig
+ *  @param  aConfig     aConfig
  *
  *  @param  aProperty   aProperty
  *
  *  @return SwpClassPropertyMeta
  */
-- (instancetype)initClassPropertyMeta:(SwpClassConfig *)classConfig aProperty:(SwpClassProperty *)aProperty {
+- (instancetype)initPropertyMeta:(SwpModelConfig *)aConfig aProperty:(SwpModelProperty *)aProperty {
 
     if (self = [super init]) {
         _aProperty = aProperty;
@@ -71,13 +71,13 @@
         }
         
         if (aProperty.aGetter) {
-            if ([classConfig.aClss instancesRespondToSelector:aProperty.aGetter]) {
+            if ([aConfig.aClass instancesRespondToSelector:aProperty.aGetter]) {
                 _aGetter = aProperty.aGetter;
             }
         }
         
         if (aProperty.aSetter) {
-            if ([classConfig.aClss instancesRespondToSelector:aProperty.aSetter]) {
+            if ([aConfig.aClass instancesRespondToSelector:aProperty.aSetter]) {
                 _aSetter = aProperty.aSetter;
             }
         }

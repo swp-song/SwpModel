@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestModel : NSObject <NSCoding>
+@interface TestModel : NSObject <NSCoding, NSCopying, NSMutableCopying>
 
 typedef NS_ENUM(NSInteger, TestModelTeype) {
     TestModelTeype1 = 0,

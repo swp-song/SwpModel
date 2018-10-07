@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class SwpClassPropertyMeta;
-
+@class SwpModelPropertyMeta;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface SwpModelUtils : NSObject
@@ -25,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return NSNumber
  */
-+ (NSNumber *)swpModelUtilsGetNumberToProperty:(id)model meta:(SwpClassPropertyMeta *)meta;
++ (NSNumber *)swpModelUtilsGetNumberToProperty:(id)model meta:(SwpModelPropertyMeta *)meta;
 
 /**
  *  @author swp_song
@@ -38,8 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param  meta    meta
  */
-+ (void)swpModelUtilsSetNumberToProperty:(id)model number:(NSNumber *)number mete:(SwpClassPropertyMeta *)meta;
++ (void)swpModelUtilsSetNumberToProperty:(id)model number:(NSNumber *)number mete:(SwpModelPropertyMeta *)meta;
 
++ (void)swpCopyModel:(NSObject *)aSelf model:(NSObject *)model meta:(SwpModelPropertyMeta *)meta;
 
 @end
 NS_ASSUME_NONNULL_END

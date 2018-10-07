@@ -2,8 +2,8 @@
 //  SwpModelInfo.h
 //  swp_song
 //
-//  Created by swp_song on 2018/4/8.
-//  Copyright © 2018年 swp_song. All rights reserved.
+//  Created by swp-song on 2018/4/8.
+//  Copyright © 2018年 swp-song. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

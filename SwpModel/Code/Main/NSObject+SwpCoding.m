@@ -2,7 +2,7 @@
 //  NSObject+SwpCoding.m
 //  swp_song
 //
-//  Created by swp_song on 2018/3/23.
+//  Created by swp-song on 2018/3/23.
 //  Copyright © 2018年 swp_song. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 /* ---------------------- Tool       ---------------------- */
 
 /* ---------------------- Model      ---------------------- */
-#import "SwpClassConfigMeta.h"
-#import "SwpClassPropertyMeta.h"
+#import "SwpModelConfigMeta.h"
+#import "SwpModelPropertyMeta.h"
 /* ---------------------- Model      ---------------------- */
 
 @implementation NSObject (SwpCoding)
@@ -33,12 +33,12 @@
         [((id<NSCoding>)self)encodeWithCoder:aCoder];
         return;
     }
-    SwpClassConfigMeta *configMeta = [[SwpClassConfigMeta alloc] initClassConfigMeta:self.class];
+    SwpModelConfigMeta *configMeta = [[SwpModelConfigMeta alloc] initConfigMeta:self.class];
     if (configMeta.aNSType) {
         [((id<NSCoding>)self)encodeWithCoder:aCoder];
         return;
     }
-    [configMeta.aAllPropertys enumerateObjectsUsingBlock:^(SwpClassPropertyMeta * _Nonnull meta, NSUInteger idx, BOOL * _Nonnull stop) {
+    [configMeta.aAllPropertys enumerateObjectsUsingBlock:^(SwpModelPropertyMeta * _Nonnull meta, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!meta.aGetter) return;
         if (meta.isACNumber) {
             NSNumber *value = [SwpModelUtils swpModelUtilsGetNumberToProperty:self meta:meta];
@@ -55,7 +55,6 @@
                 case SwpEncodingTypeSEL: {
                     SEL value = ((SEL (*)(id, SEL))(void *)objc_msgSend)((id)self, meta.aGetter);
                     if (value) [aCoder encodeObject:NSStringFromSelector(value) forKey:meta.aName];
-                    
                 } break;
                 case SwpEncodingTypeStruct:
                 case SwpEncodingTypeUnion: {
@@ -84,9 +83,9 @@
 - (id)swpDecoderCoder:(NSCoder *)aDecoder {
     if (!aDecoder) return self;
     if (self == (id)kCFNull) return self;
-    SwpClassConfigMeta *configMeta = [[SwpClassConfigMeta alloc] initClassConfigMeta:self.class];
+    SwpModelConfigMeta *configMeta = [[SwpModelConfigMeta alloc] initConfigMeta:self.class];
     if (configMeta.aNSType) return self;
-    [configMeta.aAllPropertys enumerateObjectsUsingBlock:^(SwpClassPropertyMeta * _Nonnull meta, NSUInteger idx, BOOL * _Nonnull stop) {
+    [configMeta.aAllPropertys enumerateObjectsUsingBlock:^(SwpModelPropertyMeta * _Nonnull meta, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!meta.aSetter) return;
         if (meta.isACNumber) {
             NSNumber *value = [aDecoder decodeObjectForKey:meta.aName];
