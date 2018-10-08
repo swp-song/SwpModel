@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param  aProperty   aProperty
  *
- *  @return SwpClassPropertyMeta
+ *  @return SwpModelPropertyMeta
  */
 - (instancetype)initPropertyMeta:(SwpModelConfig *)aConfig aProperty:(SwpModelProperty *)aProperty;
 

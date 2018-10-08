@@ -123,6 +123,7 @@
             
         case SwpEncodingTypeInt32:
             ((void (*)(id, SEL, int32_t))(void *) objc_msgSend)((id)model, meta.aSetter, (int32_t)number.intValue);
+            break;
             
         case SwpEncodingTypeUInt32:
             ((void (*)(id, SEL, uint32_t))(void *) objc_msgSend)((id)model, meta.aSetter, (uint32_t)number.unsignedIntValue);

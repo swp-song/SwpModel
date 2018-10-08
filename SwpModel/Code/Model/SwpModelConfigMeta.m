@@ -23,12 +23,12 @@
  *
  *  @param  aClass  aClass
  *
- *  @return SwpClassConfigMeta
+ *  @return SwpModelConfigMeta
  */
 - (instancetype)initConfigMeta:(Class)aClass {
     if (self = [super init]) {
         SwpModelConfig *config  = [[SwpModelConfig alloc] initWithClass:aClass];
-        _aNSType        = SwpClassGetNSType(aClass);
+        _aNSType        = [self swp_classGetNSType:aClass];
         _aConfig        = config;
         _aPropertyMetas = [self getAllPropertys:config];
         if (_aPropertyMetas.count) _aAllPropertys = _aPropertyMetas.allValues.copy;

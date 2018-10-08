@@ -17,7 +17,7 @@
  *
  *  @param  aProperty   aProperty
  *
-*   @return SwpClassProperty
+*   @return SwpModelProperty
  */
 - (instancetype)initWithProperty:(objc_property_t)aProperty {
     if (!aProperty) return nil;
@@ -31,13 +31,13 @@
         __block NSString *aTypeEncoding = nil;
         __block SEL aGetter             = nil;
         __block SEL aSetter             = nil;
-        [self.class swp_EnumerateAttributeListBlock:aProperty block:^(objc_property_attribute_t attribute, NSUInteger index, BOOL * _Nonnull stop) {
+        [self swp_enumerateAttributeListBlock:aProperty block:^(objc_property_attribute_t attribute, NSUInteger index, BOOL * _Nonnull stop) {
             switch (attribute.name[0]) {
                 case 'T': {
                     // Type encoding
                     if (attribute.value) {
                         aTypeEncoding = [NSString stringWithUTF8String:attribute.value];
-                        type = SwpEncodingGetType(attribute.value);
+                        type = [self swp_encodingGetType:attribute.value];
                         if ((type & SwpEncodingTypeMask) == SwpEncodingTypeObject && aTypeEncoding.length) {
                             NSScanner *scanner = [NSScanner scannerWithString:aTypeEncoding];
                             if (![scanner scanString:@"@\"" intoString:NULL]) break;
@@ -99,6 +99,5 @@
     }
     return self;
 }
-
 
 @end

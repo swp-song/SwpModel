@@ -8,7 +8,7 @@
 
 #import "SwpModelBase.h"
 
-@class SwpClassProperty;
+@class SwpModelProperty;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,16 +27,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** class's super class property */
 @property (nonatomic, strong, readonly) SwpModelConfig *aSuperConfig;
 /** class's class properties */
-@property (nonatomic, strong, readonly, nullable) NSDictionary<NSString *, SwpClassProperty *> *aPropertys;
+@property (nonatomic, strong, readonly, nullable) NSDictionary<NSString *, SwpModelProperty *> *aPropertys;
 
 /**
  *  @author swp_song
  *
- *  @brief  swpClassConfig: ( 初始化 )
+ *  @brief  swpConfig:  ( 初始化 )
  *
  *  @param  aClass  aClass
  *
- *  @return SwpClassConfig
+ *  @return SwpModelConfig
  */
 + (instancetype)swpConfig:(Class)aClass;
 
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param  aClass  aClass
  *
- *  @return SwpClassConfig
+ *  @return SwpModelConfig
  */
 - (instancetype)initWithClass:(Class)aClass;
 

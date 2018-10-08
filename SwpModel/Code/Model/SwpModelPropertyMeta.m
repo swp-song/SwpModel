@@ -25,7 +25,7 @@
  *
  *  @param  aProperty   aProperty
  *
- *  @return SwpClassPropertyMeta
+ *  @return SwpModelPropertyMeta
  */
 - (instancetype)initPropertyMeta:(SwpModelConfig *)aConfig aProperty:(SwpModelProperty *)aProperty {
 
@@ -36,9 +36,9 @@
         _aClass = _aProperty.aClass;
         
         if ((_aType & SwpEncodingTypeMask) == SwpEncodingTypeObject) {
-            _aNSType    = SwpClassGetNSType(_aClass);
+            _aNSType    = [self swp_classGetNSType:_aClass];
         } else {
-            _aCNumber   = SwpEncodingTypeIsCNumber(_aType);
+            _aCNumber   = [self swp_encodingTypeIsCNumber:_aType];
         }
         
         if ((_aType & SwpEncodingTypeMask) == SwpEncodingTypeStruct) {

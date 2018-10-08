@@ -15,11 +15,11 @@
 /**
  *  @author swp_song
  *
- *  @brief  swpClassConfig: ( 初始化 )
+ *  @brief  swpConfig:  ( 初始化 )
  *
  *  @param  aClass  aClass
  *
- *  @return SwpClassConfig
+ *  @return SwpModelConfig
  */
 + (instancetype)swpConfig:(Class)aClass {
     return [[self.class alloc] initWithClass:aClass];
@@ -32,7 +32,7 @@
  *
  *  @param  aClass  aClass
  *
- *  @return SwpClassConfig
+ *  @return SwpModelConfig
  */
 - (instancetype)initWithClass:(Class)aClass {
     if (!aClass) return nil;
@@ -60,12 +60,12 @@
  *
  *  @return NSDictionary
  */
-- (NSDictionary<NSString *, SwpClassProperty *> *)_getPropertys:(Class)aClass {
+- (NSDictionary<NSString *, SwpModelProperty *> *)_getPropertys:(Class)aClass {
     unsigned int propertyCount = 0;
     objc_property_t     *properties = class_copyPropertyList(aClass, &propertyCount);
     NSMutableDictionary *aPropertys = [NSMutableDictionary new];
     if (properties) {
-        [self.class swp_EnumeratePropertyListBlock:aClass block:^(objc_property_t  _Nonnull property, NSUInteger index, BOOL * _Nonnull stop) {
+        [self swp_enumeratePropertyListBlock:aClass block:^(objc_property_t  _Nonnull property, NSUInteger index, BOOL * _Nonnull stop) {
             SwpModelProperty *aProperty = [[SwpModelProperty alloc] initWithProperty:property];
             if (aProperty.aName) {
                 [aPropertys setObject:aProperty forKey:aProperty.aName];
@@ -74,6 +74,5 @@
     }
     return aPropertys;
 }
-
 
 @end

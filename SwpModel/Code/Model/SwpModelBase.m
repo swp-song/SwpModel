@@ -13,14 +13,51 @@
 /**
  *  @author swp_song
  *
- *  @brief  swpEncodingGetType: ( 获取 SwpEncodingType 类型 )
+ *  @brief  swp_enumerateAttributeListBlock:block:  (  )
  *
- *  @param  typeEncoding    typeEncoding
+ *  @param  property    property
  *
- *  @return SwpEncodingType
+ *  @param  block       block
  */
-+ (SwpEncodingType)swpEncodingGetType:(const char *)typeEncoding {
-    return SwpEncodingGetType(typeEncoding);
+- (void)swp_enumerateAttributeListBlock:(objc_property_t)property block:(void (NS_NOESCAPE ^)(objc_property_attribute_t attribute, NSUInteger index, BOOL * stop))block {
+    
+    BOOL stop = NO;
+    unsigned int attributeCount = 0;
+    objc_property_attribute_t *attributes = property_copyAttributeList(property, &attributeCount);
+    for (unsigned int i = 0; i<attributeCount; i++) {
+        objc_property_attribute_t attribute = attributes[i];
+        block(attribute, i, &stop);
+        if (stop) break;
+    }
+    if (attributes) {
+        free(attributes);
+        attributes = NULL;
+    }
+}
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swp_EnumeratePropertyListBlock:block:  (  )
+ *
+ *  @param  aClass  aClass
+ *
+ *  @param  block   block
+ */
+- (void)swp_enumeratePropertyListBlock:(Class)aClass block:(void (NS_NOESCAPE ^)(objc_property_t property, NSUInteger index, BOOL * stop))block {
+    BOOL stop = NO;
+    unsigned int propertyCount = 0;
+    objc_property_t * propertys = class_copyPropertyList(aClass, &propertyCount);
+    for (unsigned int i = 0; i < propertyCount; i++) {
+        objc_property_t property = propertys[i];
+        block(property, i, &stop);
+        if (stop) break;
+    }
+    
+    if (propertys) {
+        free(propertys);
+        propertys = NULL;
+    }
 }
 
 /**
@@ -32,8 +69,48 @@
  *
  *  @return SwpEncodingType
  */
-SwpEncodingType SwpEncodingGetType(const char *typeEncoding) {
+- (SwpEncodingType)swp_encodingGetType:(const char *)typeEncoding {
+    return SwpEncodingGetType(typeEncoding);
+}
 
+/**
+ *  @author swp_song
+ *
+ *  @brief  swp_classGetNSType: ( 获取 SwpEncodingNSType 类型 )
+ *
+ *  @param  aClass  aClass
+ *
+ *  @return SwpEncodingNSType
+ */
+- (SwpEncodingNSType)swp_classGetNSType:(Class)aClass {
+    return SwpClassGetNSType(aClass);
+}
+
+/**
+ *  @author swp_song
+ *
+ *  @brief  swpEncodingTypeIsCNumber:   ( 验证是否是 C 数据结构 )
+ *
+ *  @param  type    type
+ *
+ *  @return BOOL
+ */
+- (BOOL)swp_encodingTypeIsCNumber:(SwpEncodingType)type {
+    return SwpEncodingTypeIsCNumber(type);
+}
+
+#pragma mark - Private
+/**
+ *  @author swp_song
+ *
+ *  @brief  SwpEncodingGetType: ( 获取 SwpEncodingType 类型 )
+ *
+ *  @param  typeEncoding    typeEncoding
+ *
+ *  @return SwpEncodingType
+ */
+FOUNDATION_STATIC_INLINE SwpEncodingType SwpEncodingGetType(const char *typeEncoding) {
+    
     char *type = (char *)typeEncoding;
     if (!type) return SwpEncodingTypeUnknown;
     size_t len = strlen(type);
@@ -83,56 +160,30 @@ SwpEncodingType SwpEncodingGetType(const char *typeEncoding) {
  *
  *  @brief  swpClassGetNSType:  ( 获取 SwpEncodingNSType 类型 )
  *
- *  @param  aClss   aClss
+ *  @param  aClass  aClass
  *
  *  @return SwpEncodingNSType
  */
-+ (SwpEncodingNSType)swpClassGetNSType:(Class)aClss {
-    return SwpClassGetNSType(aClss);
-}
-
-/**
- *  @author swp_song
- *
- *  @brief  swpClassGetNSType:  ( 获取 SwpEncodingNSType 类型 )
- *
- *  @param  aClss   aClss
- *
- *  @return SwpEncodingNSType
- */
-SwpEncodingNSType SwpClassGetNSType(Class aClss) {
-    if (!aClss) return SwpEncodingTypeNSUnknown;
+FOUNDATION_STATIC_INLINE SwpEncodingNSType SwpClassGetNSType(Class aClass) {
+    if (!aClass) return SwpEncodingTypeNSUnknown;
     
-    if ([aClss isSubclassOfClass:[NSMutableString class]])      return SwpEncodingTypeNSMutableString;
-    if ([aClss isSubclassOfClass:[NSString class]])             return SwpEncodingTypeNSString;
-    if ([aClss isSubclassOfClass:[NSDecimalNumber class]])      return SwpEncodingTypeNSDecimalNumber;
-    if ([aClss isSubclassOfClass:[NSNumber class]])             return SwpEncodingTypeNSNumber;
-    if ([aClss isSubclassOfClass:[NSValue class]])              return SwpEncodingTypeNSValue;
-    if ([aClss isSubclassOfClass:[NSMutableData class]])        return SwpEncodingTypeNSMutableData;
-    if ([aClss isSubclassOfClass:[NSData class]])               return SwpEncodingTypeNSData;
-    if ([aClss isSubclassOfClass:[NSDate class]])               return SwpEncodingTypeNSDate;
-    if ([aClss isSubclassOfClass:[NSURL class]])                return SwpEncodingTypeNSURL;
-    if ([aClss isSubclassOfClass:[NSMutableArray class]])       return SwpEncodingTypeNSMutableArray;
-    if ([aClss isSubclassOfClass:[NSArray class]])              return SwpEncodingTypeNSArray;
-    if ([aClss isSubclassOfClass:[NSMutableDictionary class]])  return SwpEncodingTypeNSMutableDictionary;
-    if ([aClss isSubclassOfClass:[NSDictionary class]])         return SwpEncodingTypeNSDictionary;
-    if ([aClss isSubclassOfClass:[NSMutableSet class]])         return SwpEncodingTypeNSMutableSet;
-    if ([aClss isSubclassOfClass:[NSSet class]])                return SwpEncodingTypeNSSet;
+    if ([aClass isSubclassOfClass:[NSMutableString class]])      return SwpEncodingTypeNSMutableString;
+    if ([aClass isSubclassOfClass:[NSString class]])             return SwpEncodingTypeNSString;
+    if ([aClass isSubclassOfClass:[NSDecimalNumber class]])      return SwpEncodingTypeNSDecimalNumber;
+    if ([aClass isSubclassOfClass:[NSNumber class]])             return SwpEncodingTypeNSNumber;
+    if ([aClass isSubclassOfClass:[NSValue class]])              return SwpEncodingTypeNSValue;
+    if ([aClass isSubclassOfClass:[NSMutableData class]])        return SwpEncodingTypeNSMutableData;
+    if ([aClass isSubclassOfClass:[NSData class]])               return SwpEncodingTypeNSData;
+    if ([aClass isSubclassOfClass:[NSDate class]])               return SwpEncodingTypeNSDate;
+    if ([aClass isSubclassOfClass:[NSURL class]])                return SwpEncodingTypeNSURL;
+    if ([aClass isSubclassOfClass:[NSMutableArray class]])       return SwpEncodingTypeNSMutableArray;
+    if ([aClass isSubclassOfClass:[NSArray class]])              return SwpEncodingTypeNSArray;
+    if ([aClass isSubclassOfClass:[NSMutableDictionary class]])  return SwpEncodingTypeNSMutableDictionary;
+    if ([aClass isSubclassOfClass:[NSDictionary class]])         return SwpEncodingTypeNSDictionary;
+    if ([aClass isSubclassOfClass:[NSMutableSet class]])         return SwpEncodingTypeNSMutableSet;
+    if ([aClass isSubclassOfClass:[NSSet class]])                return SwpEncodingTypeNSSet;
     
     return SwpEncodingTypeNSUnknown;
-}
-
-/**
- *  @author swp_song
- *
- *  @brief  swpEncodingTypeIsCNumber:   ( 验证是否是 C 数据结构 )
- *
- *  @param  type    type
- *
- *  @return BOOL
- */
-+ (BOOL)swpEncodingTypeIsCNumber:(SwpEncodingType)type {
-    return SwpEncodingTypeIsCNumber(type);
 }
 
 /**
@@ -144,7 +195,7 @@ SwpEncodingNSType SwpClassGetNSType(Class aClss) {
  *
  *  @return BOOL
  */
-BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type) {
+FOUNDATION_STATIC_INLINE BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type) {
     switch (type & SwpEncodingTypeMask) {
         case SwpEncodingTypeBool:
         case SwpEncodingTypeInt8:
@@ -161,60 +212,5 @@ BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type) {
         default: return NO;
     }
 }
-
-/**
- *  @author swp_song
- *
- *  @brief  swp_EnumerateAttributeListBlock:block:  (  )
- *
- *  @param  property    property
- *
- *  @param  block       block
- */
-+ (void)swp_EnumerateAttributeListBlock:(objc_property_t)property block:(void (NS_NOESCAPE ^)(objc_property_attribute_t attribute, NSUInteger index, BOOL * stop))block {
-    
-    BOOL stop = NO;
-    unsigned int attributeCount = 0;
-    objc_property_attribute_t *attributes = property_copyAttributeList(property, &attributeCount);
-    for (unsigned int i = 0; i<attributeCount; i++) {
-        objc_property_attribute_t attribute = attributes[i];
-        block(attribute, i, &stop);
-        if (stop) break;
-    }
-    if (attributes) {
-        free(attributes);
-        attributes = NULL;
-    }
-}
-
-
-/**
- *  @author swp_song
- *
- *  @brief  swp_EnumeratePropertyListBlock:block:  (  )
- *
- *  @param  aClass  aClass
- *
- *  @param  block   block
- */
-+ (void)swp_EnumeratePropertyListBlock:(Class)aClass block:(void (NS_NOESCAPE ^)(objc_property_t property, NSUInteger index, BOOL * stop))block {
-    BOOL stop = NO;
-    unsigned int propertyCount = 0;
-    objc_property_t * propertys = class_copyPropertyList(aClass, &propertyCount);
-    for (unsigned int i = 0; i < propertyCount; i++) {
-        objc_property_t property = propertys[i];
-        block(property, i, &stop);
-        if (stop) break;
-    }
-    
-    if (propertys) {
-        free(propertys);
-        propertys = NULL;
-    }
-}
-
-
-
-
 
 @end

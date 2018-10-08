@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param  aProperty   aProperty
  *
- *   @return SwpClassProperty
+ *   @return SwpModelProperty
  */
 - (instancetype)initWithProperty:(objc_property_t)aProperty;
 

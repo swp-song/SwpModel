@@ -18,80 +18,46 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @author swp_song
  *
- *  @brief  swpEncodingGetType: ( 获取 SwpEncodingType 类型 )
+ *  @brief  swp_encodingGetType: ( 获取 SwpEncodingType 类型 )
  *
  *  @param  typeEncoding    typeEncoding
  *
  *  @return SwpEncodingType
  */
-+ (SwpEncodingType)swpEncodingGetType:(const char *)typeEncoding;
+- (SwpEncodingType)swp_encodingGetType:(const char *)typeEncoding;
 
 /**
  *  @author swp_song
  *
- *  @brief  swpEncodingGetType: ( 获取 SwpEncodingType 类型 )
+ *  @brief  swp_classGetNSType: ( 获取 SwpEncodingNSType 类型 )
  *
- *  @param  typeEncoding    typeEncoding
- *
- *  @return SwpEncodingType
- */
-SwpEncodingType SwpEncodingGetType(const char *typeEncoding);
-
-/**
- *  @author swp_song
- *
- *  @brief  swpClassGetNSType:  ( 获取 SwpEncodingNSType 类型 )
- *
- *  @param  aClss   aClss
+ *  @param  aClass   aClass
  *
  *  @return SwpEncodingNSType
  */
-+ (SwpEncodingNSType)swpClassGetNSType:(Class)aClss;
+- (SwpEncodingNSType)swp_classGetNSType:(Class)aClass;
 
 /**
  *  @author swp_song
  *
- *  @brief  swpClassGetNSType:  ( 获取 SwpEncodingNSType 类型 )
- *
- *  @param  aClss   aClss
- *
- *  @return SwpEncodingNSType
- */
-SwpEncodingNSType SwpClassGetNSType(Class aClss);
-
-/**
- *  @author swp_song
- *
- *  @brief  swpEncodingTypeIsCNumber:   ( 验证是否是 C 数据结构 )
+ *  @brief  swp_encodingTypeIsCNumber:  ( 验证是否是 C 数据结构 )
  *
  *  @param  type    type
  *
  *  @return BOOL
  */
-+ (BOOL)swpEncodingTypeIsCNumber:(SwpEncodingType)type;
+- (BOOL)swp_encodingTypeIsCNumber:(SwpEncodingType)type;
 
 /**
  *  @author swp_song
  *
- *  @brief  SwpEncodingTypeIsCNumber:   ( 验证是否是 C 数据结构 )
- *
- *  @param  type    type
- *
- *  @return BOOL
- */
-BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type);
-
-
-/**
- *  @author swp_song
- *
- *  @brief  swp_EnumerateAttributeListBlock:block:  (  )
+ *  @brief  swp_enumerateAttributeListBlock:block:  (  )
  *
  *  @param  property    property
  *
  *  @param  block       block
  */
-+ (void)swp_EnumerateAttributeListBlock:(objc_property_t)property block:(void (NS_NOESCAPE ^)(objc_property_attribute_t attribute, NSUInteger index, BOOL * stop))block;
+- (void)swp_enumerateAttributeListBlock:(objc_property_t)property block:(void (NS_NOESCAPE ^)(objc_property_attribute_t attribute, NSUInteger index, BOOL * stop))block;
 
 /**
  *  @author swp_song
@@ -102,8 +68,7 @@ BOOL SwpEncodingTypeIsCNumber(SwpEncodingType type);
  *
  *  @param  block   block
  */
-+ (void)swp_EnumeratePropertyListBlock:(Class)aClass block:(void (NS_NOESCAPE ^)(objc_property_t property, NSUInteger index, BOOL * stop))block;
-
+- (void)swp_enumeratePropertyListBlock:(Class)aClass block:(void (NS_NOESCAPE ^)(objc_property_t property, NSUInteger index, BOOL * stop))block;
 
 @end
 NS_ASSUME_NONNULL_END
