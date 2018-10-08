@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'SwpModel'
-  s.version          = '1.2.0'
+  s.version          = '1.2.1'
   s.summary          = ' 数据模型工具 '
 
 # This description is used to generate tags and improve search results.
@@ -30,6 +30,7 @@ TODO: 数据模型工具
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+
 
   s.source_files  = 'SwpModel/Code/**/*.{h,m}'
   s.resource      = 'SwpModel/Resources/SwpModel.bundle'

@@ -22,7 +22,7 @@
 /**
  *  @author swp_song
  *
- *  @brief  swpCopy ( copy model )
+ *  @brief  swp_copy ( copy model )
  *
  *  @return id
  */

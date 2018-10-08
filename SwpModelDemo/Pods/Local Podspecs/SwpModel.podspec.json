@@ -1,6 +1,6 @@
 {
   "name": "SwpModel",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "summary": "数据模型工具",
   "description": "TODO: 数据模型工具",
   "homepage": "https://github.com/swp-song/SwpModel",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/swp-song/SwpModel.git",
-    "tag": "1.2.0"
+    "tag": "1.2.1"
   },
   "platforms": {
     "ios": "9.0"
