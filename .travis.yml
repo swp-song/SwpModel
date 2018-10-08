@@ -1,5 +1,6 @@
 osx_image: xcode10.0 
 language: objective-c
+script: true
 # path to your xcodeproj folder
 xcode_project: SwpModelDemo/SwpModelDemo.xcworkspace
 xcode_schemes: SwpModelDemo
