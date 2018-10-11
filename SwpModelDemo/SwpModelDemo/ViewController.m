@@ -53,6 +53,18 @@
     NSLog(@"test2Temp[test1NSString] = %@", test2Temp.test1NSString);
     NSLog(@"test2Temp[test2NSString] = %@", test2Temp.test2NSString);
     
+    NSLog(@"%ld", [test hash]);
+    NSLog(@"%ld", [copy1 hash]);
+    NSLog(@"%ld", [copy2 hash]);
+    NSLog(@"%ld", [test1 hash]);
+    NSLog(@"%ld", [test1Temp hash]);
+    NSLog(@"%ld", [test2 hash]);
+    NSLog(@"%ld", [test2Temp hash]);
+    
+    NSLog(@"%i", [test isEqual:test]);
+    NSLog(@"%i", [test isEqual:copy1]);
+    NSLog(@"%i", [test isEqual:copy2]);
+    NSLog(@"%i", [test isEqual:test2]);
 }
 
 

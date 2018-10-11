@@ -21,7 +21,6 @@
     return  [NSDictionary dictionaryWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"SwpModel.bundle/SwpModel" ofType:@"plist"]];
 }
 
-
 /**
  *  @author swp_song
  *
@@ -32,6 +31,5 @@
 + (NSString *)swpModelVersion {
     return [self.class swpModelInfo][@"Version"];
 }
-
 
 @end

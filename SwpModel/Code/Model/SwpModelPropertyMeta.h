@@ -28,9 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** class property's  setter */
 @property (nonatomic, assign, readonly) SEL aSetter;
 /** class property's  YES if the struct can encoded with keyed archiver/unarchiver */
-@property (nonatomic, assign, readonly, getter=isAStrucKeyedManner) BOOL aStrucKeyedManner;
+@property (nonatomic, assign, readonly, getter = isStrucKeyedManner) BOOL aStrucKeyedManner;
 /** class property's  YES if it can access with key-value coding */
-@property (nonatomic, assign, readonly, getter=isAKVCCompatible) BOOL aKVCCompatible;
+@property (nonatomic, assign, readonly, getter = isKVCCompatible) BOOL aKVCCompatible;
 /** class property's  property */
 @property (nonatomic, strong, readonly) SwpModelProperty *aProperty;
 

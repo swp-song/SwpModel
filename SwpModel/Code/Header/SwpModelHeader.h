@@ -10,6 +10,8 @@
 #define SwpModelHeader_h
 
     #import "SwpModelInfo.h"
+    #import "NSObject+SwpHash.h"
+    #import "NSObject+SwpEqual.h"
     #import "NSObject+SwpCoding.h"
     #import "NSObject+SwpCopying.h"
 

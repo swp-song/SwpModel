@@ -79,6 +79,14 @@
     return [self swpCopy];
 }
 
+- (BOOL)isEqual:(id)object {
+    return [self swpEqual:object];
+}
+
+- (NSUInteger)hash {
+    return [self swpHash];
+}
+
 - (NSMutableDictionary *)getDictonaryDatas:(TestModel *)test array:(NSArray *)array {
     NSMutableDictionary *dictonary = @{}.mutableCopy;
     [dictonary setObject:@"value1" forKey:@"key1"];

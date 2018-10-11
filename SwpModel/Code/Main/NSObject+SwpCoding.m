@@ -58,7 +58,7 @@
                 } break;
                 case SwpEncodingTypeStruct:
                 case SwpEncodingTypeUnion: {
-                    if (meta.isAKVCCompatible && meta.aStrucKeyedManner) {
+                    if (meta.isKVCCompatible && meta.aStrucKeyedManner) {
                         @try {
                             NSValue *value = [self valueForKey:NSStringFromSelector(meta.aGetter)];
                             [aCoder encodeObject:value forKey:meta.aName];
@@ -106,7 +106,7 @@
                 } break;
                 case SwpEncodingTypeStruct:
                 case SwpEncodingTypeUnion: {
-                    if (meta.isAKVCCompatible) {
+                    if (meta.isKVCCompatible) {
                         @try {
                             NSString *value = [aDecoder decodeObjectForKey:meta.aName];
                             if (value) [self setValue:value forKey:meta.aName];
