@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'SwpModel'
-  s.version          = '1.2.2'
+  s.version          = '1.3.0'
   s.summary          = ' 数据模型工具 '
 
 # This description is used to generate tags and improve search results.
